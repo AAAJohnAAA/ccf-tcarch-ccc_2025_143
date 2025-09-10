@@ -1,0 +1,55 @@
+=================================================
+               CCF TCARCH Self-Test              
+=================================================
+Job started on mi100-1 at Wed Sep 10 02:28:54 PM UTC 2025
+
+STEP 1: Compiling source code...
+softmax/kernel.hip:119:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+  119 |     hipFree(d_in);
+      |     ^~~~~~~ ~~~~
+softmax/kernel.hip:120:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+  120 |     hipFree(d_out);
+      |     ^~~~~~~ ~~~~~
+softmax/kernel.hip:121:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+  121 |     hipFree(d_max_blocks);
+      |     ^~~~~~~ ~~~~~~~~~~~~
+softmax/kernel.hip:122:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+  122 |     hipFree(d_sum_blocks);
+      |     ^~~~~~~ ~~~~~~~~~~~~
+4 warnings generated when compiling for gfx908.
+softmax/kernel.hip:119:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+  119 |     hipFree(d_in);
+      |     ^~~~~~~ ~~~~
+softmax/kernel.hip:120:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+  120 |     hipFree(d_out);
+      |     ^~~~~~~ ~~~~~
+softmax/kernel.hip:121:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+  121 |     hipFree(d_max_blocks);
+      |     ^~~~~~~ ~~~~~~~~~~~~
+softmax/kernel.hip:122:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+  122 |     hipFree(d_sum_blocks);
+      |     ^~~~~~~ ~~~~~~~~~~~~
+4 warnings generated when compiling for host.
+Compilation successful. Executable 'softmax/softmax' created.
+
+STEP 2: Running test cases...
+Found 10 test cases in softmax/testcases
+-------------------------------------------------
+Running test [10]... PASS (1.15s)
+Running test [1]... PASS (0.48s)
+Running test [2]... PASS (0.48s)
+Running test [3]... PASS (0.46s)
+Running test [4]... PASS (0.48s)
+Running test [5]... PASS (0.48s)
+Running test [6]... PASS (0.47s)
+Running test [7]... PASS (0.45s)
+Running test [8]... PASS (0.48s)
+Running test [9]... PASS (1.12s)
+-------------------------------------------------
+FINAL RESULT: ALL TESTS PASSED!
+
+    Passed cases: 10 / 10
+    Total execution time: 6.05 seconds
+
+Job finished at Wed Sep 10 02:29:06 PM UTC 2025
+=================================================

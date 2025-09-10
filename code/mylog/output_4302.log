@@ -1,0 +1,49 @@
+=================================================
+               CCF TCARCH Self-Test              
+=================================================
+Job started on mi100-1 at Wed Sep 10 12:50:55 PM UTC 2025
+
+STEP 1: Compiling source code...
+prefix_sum/kernel.hip:65:19: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   65 |         if (d_in) hipFree(d_in);
+      |                   ^~~~~~~ ~~~~
+prefix_sum/kernel.hip:66:20: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   66 |         if (d_out) hipFree(d_out);
+      |                    ^~~~~~~ ~~~~~
+prefix_sum/kernel.hip:67:27: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   67 |         if (d_block_sums) hipFree(d_block_sums);
+      |                           ^~~~~~~ ~~~~~~~~~~~~
+3 warnings generated when compiling for gfx908.
+prefix_sum/kernel.hip:65:19: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   65 |         if (d_in) hipFree(d_in);
+      |                   ^~~~~~~ ~~~~
+prefix_sum/kernel.hip:66:20: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   66 |         if (d_out) hipFree(d_out);
+      |                    ^~~~~~~ ~~~~~
+prefix_sum/kernel.hip:67:27: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   67 |         if (d_block_sums) hipFree(d_block_sums);
+      |                           ^~~~~~~ ~~~~~~~~~~~~
+3 warnings generated when compiling for host.
+Compilation successful. Executable 'prefix_sum/prefix_sum' created.
+
+STEP 2: Running test cases...
+Found 10 test cases in prefix_sum/testcases
+-------------------------------------------------
+Running test [10]... PASS (0.63s)
+Running test [1]... PASS (0.47s)
+Running test [2]... PASS (0.46s)
+Running test [3]... PASS (0.45s)
+Running test [4]... PASS (0.46s)
+Running test [5]... PASS (0.45s)
+Running test [6]... PASS (0.45s)
+Running test [7]... PASS (0.44s)
+Running test [8]... PASS (0.45s)
+Running test [9]... PASS (0.59s)
+-------------------------------------------------
+FINAL RESULT: ALL TESTS PASSED!
+
+    Passed cases: 10 / 10
+    Total execution time: 4.85 seconds
+
+Job finished at Wed Sep 10 12:51:06 PM UTC 2025
+=================================================

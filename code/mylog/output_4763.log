@@ -1,0 +1,61 @@
+=================================================
+               CCF TCARCH Self-Test              
+=================================================
+Job started on mi100-1 at Wed Sep 10 02:07:59 PM UTC 2025
+
+STEP 1: Compiling source code...
+apsp/kernel.hip:40:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   40 |     hipMalloc(&d_dist, m * m * sizeof(int));
+      |     ^~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+apsp/kernel.hip:41:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   41 |     hipMemcpy(d_dist, h_dist.data(), m * m * sizeof(int), hipMemcpyHostToDevice);
+      |     ^~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+apsp/kernel.hip:50:9: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   50 |         hipDeviceSynchronize(); // 等待 GPU 完成
+      |         ^~~~~~~~~~~~~~~~~~~~
+apsp/kernel.hip:54:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   54 |     hipMemcpy(output, d_dist, m * m * sizeof(int), hipMemcpyDeviceToHost);
+      |     ^~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+apsp/kernel.hip:56:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   56 |     hipFree(d_dist);
+      |     ^~~~~~~ ~~~~~~
+5 warnings generated when compiling for gfx908.
+apsp/kernel.hip:40:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   40 |     hipMalloc(&d_dist, m * m * sizeof(int));
+      |     ^~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+apsp/kernel.hip:41:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   41 |     hipMemcpy(d_dist, h_dist.data(), m * m * sizeof(int), hipMemcpyHostToDevice);
+      |     ^~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+apsp/kernel.hip:50:9: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   50 |         hipDeviceSynchronize(); // 等待 GPU 完成
+      |         ^~~~~~~~~~~~~~~~~~~~
+apsp/kernel.hip:54:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   54 |     hipMemcpy(output, d_dist, m * m * sizeof(int), hipMemcpyDeviceToHost);
+      |     ^~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+apsp/kernel.hip:56:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   56 |     hipFree(d_dist);
+      |     ^~~~~~~ ~~~~~~
+5 warnings generated when compiling for host.
+Compilation successful. Executable 'apsp/apsp' created.
+
+STEP 2: Running test cases...
+Found 10 test cases in apsp/testcases
+-------------------------------------------------
+Running test [10]... PASS (0.47s)
+Running test [1]... PASS (0.49s)
+Running test [2]... PASS (0.49s)
+Running test [3]... PASS (0.46s)
+Running test [4]... PASS (0.49s)
+Running test [5]... PASS (0.47s)
+Running test [6]... PASS (0.49s)
+Running test [7]... PASS (6.34s)
+Running test [8]... PASS (2.69s)
+Running test [9]... PASS (0.49s)
+-------------------------------------------------
+FINAL RESULT: ALL TESTS PASSED!
+
+    Passed cases: 10 / 10
+    Total execution time: 12.88 seconds
+
+Job finished at Wed Sep 10 02:08:57 PM UTC 2025
+=================================================

@@ -1,0 +1,47 @@
+=================================================
+               CCF TCARCH Self-Test              
+=================================================
+Job started on mi100-1 at Wed Sep 10 01:09:44 PM UTC 2025
+
+STEP 1: Compiling source code...
+softmax/kernel.hip:54:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   54 |     hipMalloc(&d_in, N * sizeof(float));
+      |     ^~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~
+softmax/kernel.hip:55:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   55 |     hipMalloc(&d_out, N * sizeof(float));
+      |     ^~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~
+softmax/kernel.hip:57:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   57 |     hipMemcpy(d_in, input, N * sizeof(float), hipMemcpyHostToDevice);
+      |     ^~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+softmax/kernel.hip:64:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   64 |     hipMalloc(&d_max_blocks, gridSize * sizeof(float));
+      |     ^~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+softmax/kernel.hip:70:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   70 |     hipMemcpy(h_max_blocks, d_max_blocks, gridSize * sizeof(float), hipMemcpyDeviceToHost);
+      |     ^~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+softmax/kernel.hip:80:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   80 |     hipMalloc(&d_sum_blocks, gridSize * sizeof(float));
+      |     ^~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+softmax/kernel.hip:85:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   85 |     hipMemcpy(h_sum_blocks, d_sum_blocks, gridSize * sizeof(float), hipMemcpyDeviceToHost);
+      |     ^~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+softmax/kernel.hip:92:74: error: kernel function 'operator()' must be a free function or static member function
+   92 |         HIP_KERNEL_NAME([] __global__ (float* d_out, float sum_exp, int N){
+      |                                                                          ^
+softmax/kernel.hip:100:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+  100 |     hipMemcpy(output, d_out, N * sizeof(float), hipMemcpyDeviceToHost);
+      |     ^~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+softmax/kernel.hip:102:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+  102 |     hipFree(d_in);
+      |     ^~~~~~~ ~~~~
+softmax/kernel.hip:103:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+  103 |     hipFree(d_out);
+      |     ^~~~~~~ ~~~~~
+softmax/kernel.hip:104:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+  104 |     hipFree(d_max_blocks);
+      |     ^~~~~~~ ~~~~~~~~~~~~
+softmax/kernel.hip:105:5: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+  105 |     hipFree(d_sum_blocks);
+      |     ^~~~~~~ ~~~~~~~~~~~~
+12 warnings and 1 error generated when compiling for gfx908.
+failed to execute:/opt/rocm-6.4.3/lib/llvm/bin/clang++  --offload-arch=gfx908 -O3 --driver-mode=g++ -O3 --hip-link  -o "softmax/prefix_sum" -x hip softmax/main.cpp -x hip softmax/kernel.hip
